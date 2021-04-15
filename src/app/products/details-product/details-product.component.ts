@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
+import { DataService } from '../../shared/data.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-details-product',
@@ -7,19 +9,18 @@ import { ActivatedRoute } from '@angular/router'
   styleUrls: ['./details-product.component.scss']
 })
 export class DetailsProductComponent implements OnInit {
- public product = {
-   id:1,
-   name:'egg',
-   category:'Food',
-   description: 'Lorem Egg',
-   price: 1
-  }
+
+ public product: any = {}
  
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute, private dataSvc: DataService, private location: Location) { }
 
   ngOnInit(): void {
    const productId = this.route.snapshot.paramMap.get('id');
-   console.log('ProductId', productId);
+   [this.product] =this.product = this.dataSvc.getProductsById(productId);
+  }
+
+  onGoBack(): void{
+   this.location.back()
   }
 }

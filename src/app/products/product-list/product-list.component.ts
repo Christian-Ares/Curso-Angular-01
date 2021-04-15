@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../shared/data.service'
 
 @Component({
   selector: 'app-product-list',
@@ -6,19 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
- public products = [
-  {
-   id:1,
-   name:'egg',
-   category:'Food',
-   description: 'Lorem Egg',
-   price: 1
-  }
- ]
+ public products = []
 
-  constructor() { }
+  constructor(private dataSvc: DataService) { }
 
   ngOnInit(): void {
+   this.products = this.dataSvc.getAllProducts();
   }
 
 }

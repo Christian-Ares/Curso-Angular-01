@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
+import { ProductComponent } from './products/product.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { DetailsProductComponent } from './details-product/details-product.component';
+import { DetailsProductComponent } from './products/details-product/details-product.component';
 import { Error404Component } from './error404/error404.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
+    ProductComponent,
     HomePageComponent,
     DetailsProductComponent,
     Error404Component,
